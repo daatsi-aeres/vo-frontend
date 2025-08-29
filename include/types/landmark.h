@@ -1,8 +1,10 @@
-// landmark.h
+#pragma once
+#include <Eigen/Dense>
+
 struct Landmark {
-int id;
-Eigen::Vector3d Xw; // 3D point in world
-int seen = 0;
-int inliers = 0;
-bool bad = false;
+  int id = -1;
+  Eigen::Vector3d Xw = Eigen::Vector3d::Zero();
+  int seen = 0;      // total observations
+  int inliers = 0;   // times it was an inlier
+  bool bad = false;  // culled?
 };

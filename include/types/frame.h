@@ -1,18 +1,20 @@
-// frame.h
-struct Feature2D {
-Eigen::Vector2d uv; // pixel coordinates
-Eigen::Vector2d xn; // normalized coords (optional cache)
-cv::Mat descriptor; // 1 x 32 (ORB)
-int landmark_id = -1; // linked 3D point
-};
-
+#pragma once
+#include <vector>
+#include <opencv2/core.hpp>
+#include <opencv2/features2d.hpp>
+#include <Eigen/Dense>
+#include "core/pose.h"
 
 struct Frame {
-int id;
-double timestamp;
-cv::Mat image;
-Pose T_cw; // pose estimate (world->camera)
-std::vector<cv::KeyPoint> kps;
-cv::Mat descriptors; // N x 32
-std::vector<int> lm_ids; // size N, -1 if none
+  int id = -1;
+  double timestamp = 0.0;
+  cv::Mat image;               // grayscale
+  Pose T_cw;                   // world->camera estimate
+
+  // ORB features
+  std::vector<cv::KeyPoint> keypoints; // pixel coords
+  cv::Mat descriptors;                  // N x 32 (uchar)
+
+  // association to landmarks by global index
+  std::vector<int> landmark_ids;        // size N, -1 if none
 };
