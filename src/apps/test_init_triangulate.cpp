@@ -68,7 +68,7 @@ int main(int argc, char** argv){
   FeatureDetector detector({});
   detector.detectAndDescribe(f1);
   detector.detectAndDescribe(f2);
-  FeatureMatcher matcher({0.8,false,5000});
+  FeatureMatcher matcher({});
   auto matches = matcher.match(f1, f2);
 
   if (matches.size() < 30) {

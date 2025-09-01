@@ -28,5 +28,29 @@ target_link_libraries(test_init_triangulate PRIVATE ${OpenCV_LIBS})
 target_include_directories(test_init_triangulate PRIVATE ${EIGEN3_INCLUDE_DIRS})
 
 
+add_executable(test_pnp_track
+  src/apps/test_pnp_track.cpp
+  src/frontend/feature_detector.cpp
+  src/frontend/feature_matcher.cpp
+  src/frontend/initializer.cpp
+  src/frontend/triangulator.cpp
+  src/frontend/pose_estimator.cpp)
+target_include_directories(test_pnp_track PRIVATE include)
+target_link_libraries(test_pnp_track PRIVATE ${OpenCV_LIBS})
+# if needed for Eigen:
+target_include_directories(test_pnp_track PRIVATE ${EIGEN3_INCLUDE_DIRS})
+
+add_executable(run_frontend
+  src/apps/run_frontend.cpp
+  src/frontend/frontend.cpp
+  src/frontend/feature_detector.cpp
+  src/frontend/feature_matcher.cpp
+  src/frontend/initializer.cpp
+  src/frontend/triangulator.cpp
+  src/frontend/pose_estimator.cpp)
+target_include_directories(run_frontend PRIVATE include)
+target_link_libraries(run_frontend PRIVATE ${OpenCV_LIBS})
+target_include_directories(run_frontend PRIVATE ${EIGEN3_INCLUDE_DIRS})
+
 
 

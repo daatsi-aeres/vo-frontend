@@ -20,6 +20,7 @@ void FeatureDetector::detectAndDescribe(Frame& f) const {
 
         f.keypoints.clear();
         orb->detectAndCompute(f.image, cv::noArray(), f.keypoints, f.descriptors);
+        f.resizeAssociation();
         f.landmark_ids.assign(f.keypoints.size(), -1);
 
 

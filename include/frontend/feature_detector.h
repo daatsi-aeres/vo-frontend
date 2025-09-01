@@ -7,7 +7,7 @@
 // ORB-style detector/descriptor, ORB-SLAM-style defaults.
 struct FeatureDetectorCfg {
   int   n_features   = 1500;   // total per frame
-  int   n_levels     = 8;      // pyramid levels
+  int   n_levels     = 10;      // pyramid levels
   float scale_factor = 1.2f;   // pyramid scale
   int   edge_threshold = 31;   // ORB default
   int   patch_size     = 31;   // ORB default

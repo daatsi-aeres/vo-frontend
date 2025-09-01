@@ -16,13 +16,13 @@ int main(int argc, char** argv){
 
   Frame f1, f2; f1.image = img1; f2.image = img2;
 
-  FeatureDetector detector({1500, 8, 1.2f, 31, 31, 20});
+  FeatureDetector detector({});
   detector.detectAndDescribe(f1);
   detector.detectAndDescribe(f2);
   std::cout << "kpts1=" << f1.keypoints.size()
             << " kpts2=" << f2.keypoints.size() << "\n";
 
-  FeatureMatcher matcher({0.8, false, 5000});
+  FeatureMatcher matcher({});
   auto matches = matcher.match(f1, f2);
   std::cout << "matches=" << matches.size() << "\n";
 

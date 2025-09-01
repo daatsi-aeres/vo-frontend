@@ -5,16 +5,17 @@
 #include <Eigen/Dense>
 #include "core/pose.h"
 
+
 struct Frame {
   int id = -1;
-  double timestamp = 0.0;
-  cv::Mat image;               // grayscale
-  Pose T_cw;                   // world->camera estimate
+  cv::Mat image;
+  std::vector<cv::KeyPoint> keypoints;
+  cv::Mat descriptors;
+  std::vector<int> kp_to_landmark;  // landmark id for each keypoint, -1 if none
+  Pose T_cw; // camera pose wrt world
 
-  // ORB features
-  std::vector<cv::KeyPoint> keypoints; // pixel coords
-  cv::Mat descriptors;                  // N x 32 (uchar)
-
-  // association to landmarks by global index
+    // association to landmarks by global index
   std::vector<int> landmark_ids;        // size N, -1 if none
+  // Frame() {}
+  void resizeAssociation() { kp_to_landmark.assign(keypoints.size(), -1); }
 };
