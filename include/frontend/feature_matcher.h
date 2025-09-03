@@ -7,9 +7,9 @@
 struct Match { int i1 = -1; int i2 = -1; float distance = 0.f; };
 
 struct MatchOptions {
-  double ratio = 0.8;          // Lowe's ratio test
+  double ratio = 0.9;          // Lowe's ratio test
   bool   cross_check = false;  // mutual best
-  int    max_matches = 5000;   // safety cap
+  int    max_matches = 50;   // safety cap
 };
 
 class FeatureMatcher {

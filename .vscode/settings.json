@@ -5,6 +5,9 @@
         "bitset": "cpp",
         "string_view": "cpp",
         "initializer_list": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "core": "cpp",
+        "*.txx": "cpp",
+        "ostream": "cpp"
     }
 }

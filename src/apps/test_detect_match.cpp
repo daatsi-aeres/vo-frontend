@@ -32,6 +32,8 @@ int main(int argc, char** argv){
   cv::Mat vis;
   cv::drawMatches(img1, f1.keypoints, img2, f2.keypoints, cvm, vis);
   cv::imshow("matches", vis);
+  // Save the image as "output.png"
+  bool success = cv::imwrite("output_matching.png", vis); 
   cv::waitKey(0);
   return 0;
 }

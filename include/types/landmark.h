@@ -1,5 +1,6 @@
 #pragma once
 #include <Eigen/Dense>
+#include <opencv2/core.hpp>
 
 struct Landmark {
   int id = -1;

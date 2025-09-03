@@ -8,7 +8,7 @@ struct PnPOptions {
   double ransac_thresh_px = 3.0;
   double conf = 0.999;
   int    max_iters = 1000;
-  bool   use_refine = false; // (optional) refine with one Gauss-Newton step
+  bool   use_refine = true; // (optional) refine with one Gauss-Newton step
 };
 
 struct PnPResult {
